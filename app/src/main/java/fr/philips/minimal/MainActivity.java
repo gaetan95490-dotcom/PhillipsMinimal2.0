@@ -40,16 +40,16 @@ public class MainActivity extends Activity {
         root = new LinearLayout(this); root.setOrientation(LinearLayout.VERTICAL); root.setPadding(dp(42), dp(20), dp(42), dp(20));
         root.setBackgroundResource(wallpaperResources[Math.max(0, Math.min(5, prefs.getInt("wallpaper", 0)))]); setContentView(root);
         LinearLayout top = new LinearLayout(this); top.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand = text("PHILIPS MINIMAL", 15, 0xFFDDDDDD, true); brand.setLetterSpacing(.16f); top.addView(brand, new LinearLayout.LayoutParams(0, dp(48), 1));
-        TextClock clock = new TextClock(this); clock.setFormat24Hour("HH:mm"); clock.setTextColor(Color.WHITE); clock.setTextSize(22); clock.setTypeface(Typeface.create("sans-serif-light", 0)); top.addView(clock);
+        TextView brand = text("PHILIPS MINIMAL", 20, 0xFFDDDDDD, true); brand.setLetterSpacing(.16f); top.addView(brand, new LinearLayout.LayoutParams(0, dp(48), 1));
+        TextClock clock = new TextClock(this); clock.setFormat24Hour("HH:mm"); clock.setTextColor(Color.WHITE); clock.setTextSize(35); clock.setTypeface(Typeface.create("sans-serif-light", 0)); top.addView(clock);
         top.addView(spacer(22));
         TextView customize = text("⚙", 28, Color.WHITE, true); customize.setContentDescription("Personnaliser"); focusable(customize); customize.setOnClickListener(v -> showCustomization()); top.addView(customize);
         top.addView(spacer(24));
         TextView home = text("⌂", 32, Color.WHITE, true); home.setContentDescription("Quitter Philips Minimal"); focusable(home); home.setOnClickListener(v -> finish()); top.addView(home);
         root.addView(top);
-        TextView heading = text("Que souhaitez-vous regarder ?", 26, Color.WHITE, false); heading.setPadding(0, dp(35), 0, dp(20)); root.addView(heading);
+        TextView heading = text("Que souhaitez-vous utiliser ?", 26, Color.WHITE, false); heading.setPadding(0, dp(35), 0, dp(20)); root.addView(heading);
         ScrollView scroll = new ScrollView(this); appsContainer = new LinearLayout(this); appsContainer.setOrientation(LinearLayout.VERTICAL); scroll.addView(appsContainer); root.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
-        status = text("Utilisez les flèches et OK de la télécommande.", 13, 0xFFBBBBBB, false); status.setPadding(0, dp(12), 0, 0); root.addView(status);
+        status = text("Utilisez les flèches et OK de la télécommande.", 13, Color.WHITE, false); status.setPadding(0, dp(12), 0, 0); root.addView(status);
         buildApps();
     }
 
